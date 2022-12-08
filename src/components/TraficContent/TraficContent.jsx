@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 import useAxios from "../../hooks/useAxios";
 import getImageByKey from "../../utils/getImageByKey";
+import trafic from "../../datas/trafic";
 
 export default function TraficContent() {
   const [data, setData] = useState([]);
@@ -14,7 +16,8 @@ export default function TraficContent() {
 
   useEffect(() => {
     if (response !== null) {
-      setData(response.result);
+      // setData(response.result);
+      setData(trafic);
       console.log(response.result);
     }
   }, [response]);
@@ -27,16 +30,22 @@ export default function TraficContent() {
     return <p>Erreur !</p>;
   }
   return (
-    <div className="Trafic">
-      <p>Voici les infos Trafic</p>
-      <div className="Trafic-Content">
-        <div className="Trafic-Metros flex mb-4">
+    <div className="flex justify-center items-center bg-white p-20">
+      <div className="max-w-xl">
+        <Link to="/" path="/">
+          Revenir à l'accueil
+        </Link>
+        <h1 className="text-6xl font-bold text-center mb-8 text-[#00AA91]">
+          Trafic
+        </h1>
+        <div className="flex flex-wrap mb-4">
           {data?.metros?.map((metro) => (
             <div
               className={classNames(
-                "mr-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
+                "mr-4 mb-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
                 {
-                  "border-green-500/75": metro.slug === "normal",
+                  "border-green-500/75":
+                    metro.slug === "normal" || metro.slug === "normal_trav",
                   "border-red-500/75": metro.slug === "alerte",
                 }
               )}
@@ -55,13 +64,14 @@ export default function TraficContent() {
             </div>
           ))}
         </div>
-        <div className="Trafic-Rers flex mb-4">
+        <div className="flex flex flex-wrap mb-4">
           {data?.rers?.map((rer) => (
             <div
               className={classNames(
-                "mr-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
+                "mr-4 mb-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
                 {
-                  "border-green-500/75": rer.slug === "normal",
+                  "border-green-500/75":
+                    rer.slug === "normal" || rer.slug === "normal_trav",
                   "border-red-500/75": rer.slug === "alerte",
                 }
               )}
@@ -80,13 +90,14 @@ export default function TraficContent() {
             </div>
           ))}
         </div>
-        <div className="Trafic-Tramways flex mb-4">
+        <div className="flex flex flex-wrap mb-4">
           {data?.tramways?.map((tramway) => (
             <div
               className={classNames(
-                "mr-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
+                "mr-4 mb-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
                 {
-                  "border-green-500/75": tramway.slug === "normal",
+                  "border-green-500/75":
+                    tramway.slug === "normal" || tramway.slug === "normal_trav",
                   "border-red-500/75": tramway.slug === "alerte",
                 }
               )}

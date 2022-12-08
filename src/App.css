@@ -2,3 +2,14 @@
   font-family: "Parisine"; /*Can be any text*/
   src: local("Parisine"), url("./fonts/ParisineRegular.otf") format("otf");
 }
+
+@font-face {
+  font-family: "ParisineBoldItalic"; /*Can be any text*/
+  src: local("ParisineBoldItalic"),
+    url("./fonts/ParisineBoldItalic.otf") format("otf");
+}
+
+@font-face {
+  font-family: "ParisineBold"; /*Can be any text*/
+  src: local("ParisineBold"), url("./fonts/ParisineBold.otf") format("otf");
+}

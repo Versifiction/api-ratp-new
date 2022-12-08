@@ -4,9 +4,9 @@ import TraficContent from "../../components/TraficContent/TraficContent";
 
 function Trafic() {
   return (
-    <div>
+    <>
       <TraficContent />
-    </div>
+    </>
   );
 }
 
