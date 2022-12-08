@@ -1,0 +1,17 @@
+https://api-ratp.pierre-grimaud.fr/v4
+
+/lines
+/lines/{type}
+/lines/{type}/{code}
+
+/destinations/{type}/{code}
+
+/missions/rers/{code}/{mission}
+
+/schedules/{type}/{code}/{station}/{way}
+
+/stations/{type}/{code}
+
+/traffic
+/traffic/{type}
+/traffic/{type}/{code}
