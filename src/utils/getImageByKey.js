@@ -28,6 +28,7 @@ import tramway5 from "../assets/T5genRVB.svg";
 import tramway6 from "../assets/T6genRVB.svg";
 import tramway7 from "../assets/T7genRVB.svg";
 import tramway8 from "../assets/T8genRVB.svg";
+import travaux from "../assets/travaux.svg";
 
 const images = {
   metro1,
@@ -60,6 +61,7 @@ const images = {
   tramway6,
   tramway7,
   tramway8,
+  travaux,
 };
 
 function getImageByKey(key) {

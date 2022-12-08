@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import classNames from "classnames";
 
 import useAxios from "../../hooks/useAxios";
 import getImageByKey from "../../utils/getImageByKey";
@@ -29,24 +30,78 @@ export default function TraficContent() {
     <div className="Trafic">
       <p>Voici les infos Trafic</p>
       <div className="Trafic-Content">
-        <div className="Trafic-Metros flex">
+        <div className="Trafic-Metros flex mb-4">
           {data?.metros?.map((metro) => (
-            <div className="pr-4 w-16 h-16" key={metro.line}>
-              <img src={getImageByKey(`metro${metro.line}`)} />
+            <div
+              className={classNames(
+                "mr-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
+                {
+                  "border-green-500/75": metro.slug === "normal",
+                  "border-red-500/75": metro.slug === "alerte",
+                }
+              )}
+              key={metro.line}
+            >
+              <img
+                className="w-12 h-12"
+                src={getImageByKey(`metro${metro.line}`)}
+              />
+              {metro.slug === "normal_trav" && (
+                <img
+                  className="w-6 h-6 absolute right-0 bottom-0"
+                  src={getImageByKey("travaux")}
+                />
+              )}
             </div>
           ))}
         </div>
-        <div className="Trafic-Rers flex">
+        <div className="Trafic-Rers flex mb-4">
           {data?.rers?.map((rer) => (
-            <div className="pr-4 w-16 h-16" key={rer.line}>
-              <img src={getImageByKey(`rer${rer.line}`)} />
+            <div
+              className={classNames(
+                "mr-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
+                {
+                  "border-green-500/75": rer.slug === "normal",
+                  "border-red-500/75": rer.slug === "alerte",
+                }
+              )}
+              key={rer.line}
+            >
+              <img
+                className="w-12 h-12"
+                src={getImageByKey(`rer${rer.line}`)}
+              />
+              {rer.slug === "normal_trav" && (
+                <img
+                  className="w-6 h-6 absolute right-0 bottom-0"
+                  src={getImageByKey("travaux")}
+                />
+              )}
             </div>
           ))}
         </div>
-        <div className="Trafic-Tramways flex">
+        <div className="Trafic-Tramways flex mb-4">
           {data?.tramways?.map((tramway) => (
-            <div className="pr-4 w-16 h-16" key={tramway.line}>
-              <img src={getImageByKey(`tramway${tramway.line}`)} />
+            <div
+              className={classNames(
+                "mr-4 w-16 h-16 rounded-md border-4 flex justify-center items-center relative",
+                {
+                  "border-green-500/75": tramway.slug === "normal",
+                  "border-red-500/75": tramway.slug === "alerte",
+                }
+              )}
+              key={tramway.line}
+            >
+              <img
+                className="w-12 h-12"
+                src={getImageByKey(`tramway${tramway.line}`)}
+              />
+              {tramway.slug === "normal_trav" && (
+                <img
+                  className="w-6 h-6 absolute right-0 bottom-0"
+                  src={getImageByKey("travaux")}
+                />
+              )}
             </div>
           ))}
         </div>
