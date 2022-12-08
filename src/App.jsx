@@ -1,26 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import useAxios from "./hooks/useAxios";
+import Router from "./Router";
+import "./fonts/ParisineRegular.otf";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState([]);
-
-  const { response, loading, error } = useAxios({
-    url: "/traffic",
-    method: "get",
-  });
-
-  useEffect(() => {
-    if (response !== null) {
-      setData(response.result);
-      console.log(response.result);
-    }
-  }, [response]);
-
   return (
     <div className="App">
-      <p>ok</p>
+      <Router />
     </div>
   );
 }

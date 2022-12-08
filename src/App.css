@@ -1,0 +1,4 @@
+@font-face {
+  font-family: "Parisine"; /*Can be any text*/
+  src: local("Parisine"), url("./fonts/ParisineRegular.otf") format("otf");
+}

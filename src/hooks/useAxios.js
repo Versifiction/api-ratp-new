@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-axios.defaults.baseURL = import.meta.env.REACT_APP_BASE_URL;
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
 const useAxios = ({ url, method, body = null, headers = null }) => {
   const [response, setResponse] = useState(null);
@@ -9,7 +9,11 @@ const useAxios = ({ url, method, body = null, headers = null }) => {
   const [loading, setLoading] = useState(true);
 
   const fetchData = () => {
-    axios[method](url, JSON.parse(headers), JSON.parse(body))
+    axios[method](
+      import.meta.env.VITE_BASE_URL + url,
+      JSON.parse(headers),
+      JSON.parse(body)
+    )
       .then((res) => {
         setResponse(res.data);
       })
